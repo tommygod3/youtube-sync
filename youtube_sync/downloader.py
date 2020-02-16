@@ -8,6 +8,9 @@ class Downloader():
             "format": "bestaudio/best",
             "ffmpeg_location": self.config.global_config["ffmpeg_path"],
             "playlistreverse": True,
+            "dump_single_json": True,
+            "rejecttitle": ".*Star Wars.*",
+            "simulate": True,
             "postprocessors": [{
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "mp3",
