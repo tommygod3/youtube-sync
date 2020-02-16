@@ -1,7 +1,9 @@
 import os, re
 from mutagen.mp3 import EasyMP3
 
-
+class Downloader():
+    def __init__(self, cli_args):
+        pass
 
 regex_old = re.compile(r"^(?P<title>.*) - (?P<name>.*)-(?P<mess>.{11}).mp3$")
 regex_new = re.compile(r"^(?P<name>.*) - (?P<title>.*)-(?P<mess>.{11}).mp3$")
