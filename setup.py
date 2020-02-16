@@ -24,5 +24,9 @@ setup(
         'Programming Language :: Python :: 3',
     ],
     zip_safe=False,
-    entry_points={}
+    entry_points={
+        'console_scripts': [
+            'youtube-sync = youtube_sync.cli:main',
+        ],
+    }
 )
