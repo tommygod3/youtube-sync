@@ -26,7 +26,7 @@ setup(
     zip_safe=False,
     entry_points={
         'console_scripts': [
-            'youtube-sync = youtube_sync.cli:main',
+            'youtube-sync = youtube_sync.youtube_sync:main',
         ],
     }
 )
