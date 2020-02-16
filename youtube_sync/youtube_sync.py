@@ -1,12 +1,13 @@
 from docopt import docopt
 
 from config_handler import ConfigHandler
+from downloader import Downloader
 
 usage = """
 youtube_sync.py
 
 Usage:
-    youtube-sync
+    youtube-sync download
     youtube-sync ffmpeg
     youtube-sync ffmpeg set PATH
     youtube-sync url
@@ -19,9 +20,9 @@ Options:
 """
 def main():
     args = docopt(usage)
-    ConfigHandler(args)
-
-    print(args)
+    config = ConfigHandler(args)
+    if args["download"]:
+        Downloader(config)
 
 if __name__ == "__main__":
     main()

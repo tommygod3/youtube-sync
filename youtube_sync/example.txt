@@ -1,1 +1,0 @@
-youtube-dl --playlist-reverse -x --audio-format mp3 --ffmpeg-location /c/Users/Tommy/ffmpeg-4.1.1-win64-static/ffmpeg-4.1.1-win64-static/bin https://www.youtube.com/playlist?list=PLvcSNZqNYJCkRDNbwz4mj3JvoKY25fIdE
