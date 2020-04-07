@@ -1,2 +1,1 @@
-youtube-dl --download-archive archive.txt --playlist-reverse --extract-audio --audio-format mp3 --ffmpeg-location C:/Users/Tommy/ffmpeg/ffmpeg-20200213-6d37ca8-win64-static/bin https://ww
-w.youtube.com/playlist?list=PLnFvOyYfOJhJyl8olnwL3bK1apKgg0DCs
+youtube-dl --download-archive archive.txt --playlist-reverse --extract-audio --audio-format mp3 --ffmpeg-location C:/Users/Tommy/ffmpeg/ffmpeg-20200213-6d37ca8-win64-static/bin https://www.youtube.com/playlist?list=PLnFvOyYfOJhJyl8olnwL3bK1apKgg0DCs
