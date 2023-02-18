@@ -1,7 +1,7 @@
 from docopt import docopt
 
-from config_handler import ConfigHandler
-from downloader import Downloader
+from .config_handler import ConfigHandler
+from .downloader import Downloader
 
 usage = """
 youtube_sync.py
