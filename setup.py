@@ -12,7 +12,7 @@ setup(
     long_description=_long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
-    install_requires=['docopt'],
+    install_requires=['docopt', 'mutagen', 'yt_dlp'],
     python_requires='>=3.5.0',
     classifiers=[
         'Development Status :: 1 - Alpha',

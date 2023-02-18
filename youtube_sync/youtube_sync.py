@@ -2,6 +2,7 @@ from docopt import docopt
 
 from .config_handler import ConfigHandler
 from .downloader import Downloader
+from .formatter import Formatter
 
 usage = """
 youtube_sync.py
@@ -23,6 +24,7 @@ def main():
     config = ConfigHandler(args)
     if args["download"]:
         Downloader(config)
+        Formatter()
 
 if __name__ == "__main__":
     main()

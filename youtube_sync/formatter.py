@@ -1,30 +1,21 @@
 import os, re
 from mutagen.mp3 import EasyMP3
 
-regex_old = re.compile(r"^(?P<title>.*) - (?P<name>.*)-(?P<mess>.{11}).mp3$")
-regex_new = re.compile(r"^(?P<name>.*) - (?P<title>.*)-(?P<mess>.{11}).mp3$")
+class Formatter():
+    songname_pattern = re.compile(r"^(?P<title>.*)_(?P<track>.*)_(?P<artist>.*)_(?P<album>.*)_(?P<date>.*).mp3$")
 
-for filename in os.listdir("."):
-    if '.mp3' in filename:
-        print(f"Old name: {filename}")
-        match_old = regex_old.match(filename)
-        match_new = regex_new.match(filename)
-        if filename.startswith("H3") and match_old:
-            print(f"Mess: {match_old.group('mess')}")
-            new_name = f"{match_old.group('title')} - {match_old.group('name')}.mp3"
-            os.rename(filename, new_name)
-            filename = new_name
-            print(f"New name: {new_name}")
-        elif match_new:
-            print(f"Mess: {match_new.group('mess')}")
-            new_name = f"{match_new.group('title')} - {match_new.group('name')}.mp3"
-            os.rename(filename, new_name)
-            filename = new_name
-            print(f"New name: {new_name}")
-        else:
-            print(f"No change: {filename}")
+    def __init__(self):
+        for filename in os.listdir("."):
+            if filename.endswith('.mp3'):
+                match = self.songname_pattern.match(filename)
+                if match:
+                    if match.group("track") != "NA":
+                        track = match.group("track")
+                    else:
+                        track = match.group("title")
+                    audio = EasyMP3(filename)
+                    for group in ["artist", "album", "date"]:
+                        audio[group] = match.group(group) if match.group(group) != "NA" else ""
+                    audio.save()
 
-        audio = EasyMP3(filename)
-        audio["artist"] = "H3"
-        audio["album"] = "H3 Podcast"
-        audio.save()
+                    os.rename(filename, f"{track}.mp3")
